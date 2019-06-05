@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Jquery</title>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
 </head>
+<style>
+body{
+    background-color: gray;
+    text-align: center;
+    margin-top: 100px;
+}
+
+</style>
 <body>
-    
+
+<div></div>
+<p id="texto-id"></p>
+<p class="texto-class"></p>
+
+<script>
+//JQUERY resume: Document.querySelector('h1).innerHTML --> $(h1).html(' ');
+
+$('div').html('<h2 style="color:pink">Hola JQuery</h2>');
+
+$('#texto-id').text('<h2 style="color:pink">Hola JQuery</h2>'); //como innertext: no respeta codigo html
+
+$('.texto-class').html('<span style="color:lightblue">Hola JQuery</span>')
+
+</script>
 </body>
 </html>
