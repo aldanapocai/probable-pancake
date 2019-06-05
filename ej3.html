@@ -12,27 +12,97 @@ crossorigin="anonymous"></script>
 </head>
 <style>
 body{
-    background-color: gray;
-    text-align: center;
-    margin-top: 100px;
+background-color: gray;
+text-align: center;
+margin-top: 100px;
 }
-
+img{
+    width: 500px;
+}
 </style>
 <body>
-
-<div></div>
-<p id="texto-id"></p>
-<p class="texto-class"></p>
-
 <script>
 //JQUERY resume: Document.querySelector('h1).innerHTML --> $(h1).html(' ');
+$().ready(function(){ 
 
-$('div').html('<h2 style="color:pink">Hola JQuery</h2>');
+$('#div1').html('<h2 style="color:pink">Hola JQuery</h2>');
 
 $('#texto-id').text('<h2 style="color:pink">Hola JQuery</h2>'); //como innertext: no respeta codigo html
 
-$('.texto-class').html('<span style="color:lightblue">Hola JQuery</span>')
+$('.texto-class').html('<span style="color:lightblue">Hola JQuery</span>');
 
+
+$('#parrafo').mouseover(function(){
+
+$('#parrafo').css('background-color', 'blue');
+
+$('#parrafo').css('color', 'white');
+});
+
+$('#parrafo').mouseout(function(){
+
+$('#parrafo').css('background-color', '');
+
+$('#parrafo').css('color', '');
+
+});
+var ocultarParrafo =false;
+$('#boton').click(function(){
+    ocultarParrafo=!ocultarParrafo;
+    if(ocultarParrafo){
+        $('#parrafo2').hide();
+        $('#boton').text('MOSTRAR');
+    }
+    else {
+        $('#parrafo2').show();
+        $('#boton').text('OCULTAR');
+    }
+});
+//$('#boton').text('OCULTAR'); 
+$('#nombre').val(12345);
+
+//Listener
+
+$('#nombre').keypress(function(){
+    var valor=$('#nombre').val();
+    console.log('cambio',valor);
+});
+
+
+var cambiarImagen=false;
+$('#boton2').click(function(){
+cambiarImagen=!cambiarImagen;
+if(cambiarImagen){
+    $('img').attr('src','https://images.unsplash.com/photo-1559661258-542e6291e924?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
+}
+else{
+    $('img').attr('src','https://images.unsplash.com/photo-1559656075-07db2f9bab0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80');
+}
+}
+);
+
+
+});
+
+
+                    
 </script>
+
+<div id="div1"></div>
+<p id="texto-id"></p>
+<p class="texto-class"></p>
+
+<p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus asperiores ad necessitatibus exercitationem voluptatum error aliquid iusto aliquam obcaecati odit repellendus explicabo nobis quibusdam dolorem ullam, placeat voluptate vitae enim!</p>
+<div>
+<button id="boton">MOSTRAR/OCULTAR</button>
+<p id="parrafo2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus asperiores ad necessitatibus exercitationem voluptatum error aliquid iusto aliquam obcaecati odit repellendus explicabo nobis quibusdam dolorem ullam, placeat voluptate vitae enim!</p>
+</div>
+<div>
+<button id="boton2">CAMBIAR IMAGEN</button>
+<img src="https://images.unsplash.com/photo-1559656075-07db2f9bab0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="edificio">
+</div>
+<input id="nombre" type="text">
+
+
 </body>
 </html>
